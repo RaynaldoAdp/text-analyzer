@@ -1,11 +1,14 @@
 function getInput(){
-	$('.js-form').submit(function(event){
+	$('#js-form').submit(function(event){
 		event.preventDefault();
 		var textInput = $('#user-text').val();
 		alert(textInput);
 	});
 }
-getInput();
+
+$(document).ready(function() {
+	getInput();
+});
 
 function getWords(wordsString) {
  	return wordsString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort();
@@ -23,7 +26,7 @@ function arrayToObject(wordsArray){
 	var object = {};
 	for(i = 0; i < wordsArray.length; i++){
 		if([wordsArray[i]] in object){
-			object[wordsArray[i]]++; 
+			object[wordsArray[i]]++;
 		}
 		else{
 			object[wordsArray[i]] = 1;
@@ -43,11 +46,3 @@ function averageWordLength(wordsArray){
 function UniqueWordCount(wordsObject){
 	return Object.keys(wordsObject).length;
 }
-
-
-
-
-
-
-	
-
